@@ -57,6 +57,20 @@
                 var str = "3 2 4 2 5";
                 setSeat(str);
                 
+                //배열로 
+                $("#selectedBtn").click(function(){
+                    var seq = $(".selectColor").map(function(){ 
+                        return $(this).html();
+                    });
+                    // 콤마기준으로 값 확인(하나의 string으로 출력)
+                    /*
+                        var seq = $(".selectColor").map(function(){ 
+                            return $(this).html();
+                        }).get().join(',');
+                    */
+                    console.log(seq);
+                })
+                
                 $(".seat").click(function() {
                     var seatName;
                     var row = $(this).parent().index();
@@ -92,5 +106,6 @@
     </head>
     <body>
         <div class="seatMap-wrapper"></div>
+        <button id="selectedBtn"></button>
     </body>
 </html>
