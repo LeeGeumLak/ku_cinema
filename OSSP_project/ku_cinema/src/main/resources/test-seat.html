@@ -59,16 +59,16 @@
                 
                 //배열로 
                 $("#selectedBtn").click(function(){
-                    var seq = $(".selectColor").map(function(){ 
-                        return $(this).html();
-                    });
+                    var list = $(".selectColor").map(function(){ 
+                        return $.makeArray($(this).html());
+                    }).get();
                     // 콤마기준으로 값 확인(하나의 string으로 출력)
                     /*
                         var seq = $(".selectColor").map(function(){ 
                             return $(this).html();
                         }).get().join(',');
                     */
-                    console.log(seq);
+                    console.log(list);
                 })
                 
                 $(".seat").click(function() {
