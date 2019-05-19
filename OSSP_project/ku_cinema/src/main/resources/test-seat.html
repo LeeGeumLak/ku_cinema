@@ -5,44 +5,58 @@
         <title>좌석선택 테스트</title>
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript">
-            function setSeat(str) {
-                /*
-                str은 좌석배열의 정보를 공백문자로 구분하여 받음.
-                첫 문자는 좌석 분단 개수, 분단별 열의 개수, 마지막 문자는 분단의 행의 개수(행은 모든 분단이 같은 것으로 가정.)
-                */
-                var str = str.split(" ");
-                
-                var len = str.length;
-                var rowName;
-                
-                $(function() {
-                    $(".seatMap-wrapper").append("<table class='seatMap'>")
-                    for(var r=0; r<len; r++) {
-                        var c = 1;
-                        rowName = 65 + r;
-                        rowName = String.fromCharCode(rowName);
-                        $(".seatMap").append("<tr class='seatRow'>");
-                        for(var i=1; i<=str[0]; i++) {
-                            for(var j=0; j<str[i]; j++) {
-                                if(j==(str[i])-1) {
-                                    $(".seatRow").append("<td class='seat' id='span'><p>"+rowName+ c +"</p></td>")
-                                }
-                                else $(".seatRow").append("<td class='seat'><p>"+rowName+ c +"</p></td>");
-                                c++;
-                            }
-                        }
-                        $(".seatMap").append("</tr>");
-                    }
-                    $(".seatMap-wrapper").append("</table>");
-                })
-                
-            }
-            
-            var str = "3 2 4 2 5";
-            
-            setSeat(str);
-            
             $(function() {
+                function setSeat(str) {
+                    /*
+                    str은 좌석배열의 정보를 공백문자로 구분하여 받음.
+                    첫 문자는 좌석 분단 개수, 분단별 열의 개수, 마지막 문자는 분단의 행의 개수(행은 모든 분단이 같은 것으로 가정.)
+                    */
+                    
+                    //입력받은 문자열 배열에 담기
+                    var arr = str.split(" ");
+                    var len = arr.length;
+                    
+                    //좌석도에 나타낼 행 이름.
+                    var rowName;
+                    
+                    //동적으로 삽입할 태그정의.
+                    var tag="";
+                    
+                    $(".seatMap-wrapper").html("<table class='seatMap'></table");
+                    for(var r=0; r<arr[len-1]; r++) {
+                        tag += "<tr>";
+                        
+                        //td태그를 생성할 열의 개수
+                        var tdCnt = 0;
+                        for(var j=1; j<=len-2; j++) {
+                            tdCnt += Number(arr[j]);
+                        }
+                        
+                        for(var k=1; k<=tdCnt; k++) {
+                            tag += "<td class='seat' ";
+                            //td 태그에 특정조건에 따라 id="span" 속성 추가
+                            var sum = 0;
+                            for(var l=1; l<len-1; l++) {
+                                sum += Number(arr[l]);
+                                if(k == sum) {
+                                    tag += "td='span'";
+                                }
+                            }
+                            tag += ">";
+                            //화면에 표현할 좌석번호 담기
+                            rowName = 65 + r;
+                            rowName = String.fromCharCode(rowName);
+                            tag += "<p>" + rowName + k + "</p>";
+                            tag += "</td">;
+                        }
+                        tag += "</tr>";
+                    }
+                     $(".seatMap").html(tag);
+                }
+                
+                var str = "3 2 4 2 5";
+                setSeat(str);
+                
                 $(".seat").click(function() {
                     var seatName;
                     var row = $(this).parent().index();
@@ -61,7 +75,6 @@
             })
         </script>
         <style>
-            table {border-collapse: separate;}
             .seat {cursor: pointer;}
             .seat p {
                 display: inline-block;
@@ -78,7 +91,6 @@
         </style>
     </head>
     <body>
-        <div class="seatMap-wrapper">
-        </div>
+        <div class="seatMap-wrapper"></div>
     </body>
 </html>
