@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>좌석선택 테스트</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                function setSeat(str) {
+                    /*
+                    str은 좌석배열의 정보를 공백문자로 구분하여 받음.
+                    첫 문자는 좌석 분단 개수, 분단별 열의 개수, 마지막 문자는 분단의 행의 개수(행은 모든 분단이 같은 것으로 가정.)
+                    */
+                    
+                    //입력받은 문자열 배열에 담기
+                    var arr = str.split(" ");
+                    var len = arr.length;
+                    
+                    //좌석도에 나타낼 행 이름.
+                    var rowName;
+                    
+                    //동적으로 삽입할 태그정의.
+                    var tag="";
+                    
+                    $(".seatMap-wrapper").html("<table class='seatMap'></table>");
+                    for(var r=0; r<arr[len-1]; r++) {
+                        tag += "<tr>";
+                        
+                        //td태그를 생성할 열의 개수
+                        var tdCnt = 0;
+                        for(var j=1; j<=len-2; j++) {
+                            tdCnt += Number(arr[j]);
+                        }
+                        
+                        for(var k=1; k<=tdCnt; k++) {
+                            tag += "<td class='seat' ";
+                            //td 태그에 특정조건에 따라 id="span" 속성 추가
+                            var sum = 0;
+                            for(var l=1; l<len-1; l++) {
+                                sum += Number(arr[l]);
+                                if(k == sum) {
+                                    tag += "td='span'";
+                                }
+                            }
+                            tag += ">";
+                            //화면에 표현할 좌석번호 담기
+                            rowName = 65 + r;
+                            rowName = String.fromCharCode(rowName);
+                            tag += "<p>" + rowName + k + "</p>";
+                            tag += "</td>";
+                        }
+                        tag += "</tr>";
+                    }
+                     $(".seatMap").html(tag);
+                }
+                
+                var str = "3 2 4 2 5";
+                setSeat(str);
+                
+                //배열로 
+                $("#selectedBtn").click(function(){
+                    var list = $(".selectColor").map(function(){ 
+                        return $.makeArray($(this).html());
+                    }).get();
+                    // 콤마기준으로 값 확인(하나의 string으로 출력)
+                    /*
+                        var seq = $(".selectColor").map(function(){ 
+                            return $(this).html();
+                        }).get().join(',');
+                    */
+                    console.log(list);
+                    
+                    $.ajax({
+                        url : '/saveSample',
+                        method : 'post',
+                        dataType : 'json',
+                        // 배열처리를 위하여 필요한 옵션
+                         traditional : true,
+                        data : {
+                           // 선택 좌석 배열값
+                           seats : list,
+                           price : 15000
+                        },
+                        success : function(response){
+                           console.log(response)
+                        }
+                     })
+                })
+                
+                $(".seat").click(function() {
+                    var seatName;
+                    var row = $(this).parent().index();
+                    row += 65;
+                    row = String.fromCharCode(row);
+                    var col = $(this).parent().children().index(this)+1;
+                    setName = row + col;
+                    console.log(setName);
+                    $(this).children("p").toggleClass("selectColor");
+                })
+                $(".seat").mouseover(function() {
+                    $(this).children("p").addClass("hoverColor");
+                }).mouseout(function() {
+                    $(this).children("p").removeClass("hoverColor");
+                })
+            })
+        </script>
+        <style>
+            .seat {cursor: pointer;}
+            .seat p {
+                display: inline-block;
+                width: 80px;
+                height : 40px;
+                border: 1px solid #3d3d3d;
+                text-align: center;
+                padding-top: 20px; 
+                margin: 3px;
+            }
+            #span p {margin-right: 20px;}
+            .hoverColor {background-color: #e5e5e5;}
+            .selectColor {background-color: cornflowerblue;}
+        </style>
+    </head>
+    <body>
+        <div class="seatMap-wrapper"></div>
+        <button id="selectedBtn">선택좌석확인</button>
+    </body>
+</html>

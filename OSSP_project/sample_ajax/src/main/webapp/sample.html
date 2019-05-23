@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(function(){
+  		$.ajax({
+  			url : '/saveSample',
+  			method : 'post',
+  			dataType : 'json',
+  			// 배열처리를 위하여 필요한 옵션
+  		    traditional : true,
+  			data : {
+  				// 선택 좌석 배열값
+  				seats : ['A1','B2','C33'],
+  				price : 15000
+  			},
+  			success : function(response){
+  				console.log(response)
+  			}
+  		})
+  	})
+  </script>
+</head>
+<body>
+???
+</body>
+</html>
