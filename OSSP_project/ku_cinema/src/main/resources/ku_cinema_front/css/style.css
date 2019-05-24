@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+li {list-style: none;}
+a {text-decoration: none;}
+img {width: 100%;}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+body {font-family: 'Noto Sans KR', sans-serif;}
+
+/*--------------HEADER 시작-------------*/
+
+[class*="menu"] {
+    cursor: pointer;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.submenu-wrapper {
+    float: right;
+    margin-top: 8px;
+}
+
+.submenu {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.8em;
+}
+.submenu:last-child {margin-right: 0;}
+
+h1 {
+    text-align: center;
+    margin: 8px 0;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.4em;
+}
+
+.mainmenu-wrapper {
+    text-align: center;
+    padding: 8px 0;
+    background-color: #688F4E;
+}
+.mainmenu {
+    display: inline-block;
+    margin-right: 8px;
+}
+.mainmenu:last-child {margin-right: 0;}
+
+
+/*--------------HEADER 끝-------------*/
+
+/*-----------배너광고영역 시작----------*/
+
+.banner-wrapper {background-color: #041450;}
+.banner-ad {
+    display: block;
+    margin: 0 auto;
+}
+.btn_close {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    top: 2%;
+    right: 50%;
+    background: url("../img/banner-close.png");
+    margin-right: -485px;
+    border: 0;
+}
+
+/*-----------배너광고영역 끝----------*/
+
+/*-----------컨텐츠영역 시작----------*/
+
+.content-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 5%;
+}
+
+.movie-content {
+    margin: 0 auto;
+    padding: 2%;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    transition: all 1s;
+}
+
+@media(min-width: 768px) {
+    .movie-content {
+        width: 50%;
+    }
+}
+@media(min-width: 1024px) {
+    .movie-content {
+        width: 33.33%;
+    }
+}
+@media(min-width: 1200px) {
+    .movie-content {
+        width: 25%;
+    }
+}
+@media(min-width: 1400px) {
+    .movie-content {
+        width: 20%;
+    }
+}
+
+.movie-thumb {width: 100%;}
+
+
+.icon-wrapper {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.like-btn {
+    cursor: pointer;
+    width: 25px;
+    margin-right: 5%;
+    margin-left: 40%;
+}
+.ticket-btn {
+    width: 60px;
+    height: 25px;
+    background-image: url("../img/reserve_btn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.movie-age {
+    width: 21px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+}
+.movie-title {font-size: 1.2em;}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+/*-----------컨텐츠영역 끝----------*/
