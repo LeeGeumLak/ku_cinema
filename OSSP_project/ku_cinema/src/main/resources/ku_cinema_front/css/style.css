@@ -66,6 +66,7 @@ h1 {
 .banner-ad {
     display: block;
     margin: 0 auto;
+    max-width: 980px;
 }
 .btn_close {
     cursor: pointer;
