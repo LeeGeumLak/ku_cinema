@@ -41,7 +41,7 @@ nav {
 
 h1 {
     text-align: center;
-    margin: 8px 0;
+    margin-bottom: 8px;
     font-family: 'Abril Fatface', cursive;
     font-size: 2.4em;
 }
@@ -74,20 +74,144 @@ h1 {
     height: 13px;
     position: absolute;
     top: 2%;
-    right: 50%;
-    background: url("../img/banner-close.png");
-    margin-right: -485px;
+    right: 2%;
+    background: url("../img/icon/banner-close.png");
     border: 0;
+    transition: all 1s;
+}
+
+@media(min-width:1280px) {
+    .btn_close {
+        right: 10%;
+    }
 }
 
 /*-----------배너광고영역 끝----------*/
 
 /*-----------컨텐츠영역 시작----------*/
 
+/*이미지갤러리영역*/
+/* 메인 슬라이드 */
+.sm_mv .sm_mv_slide {
+    position: relative;
+    text-align: center;
+    height: 525px;
+}
+.sm_mv .sm_mv_slide dt {
+    position: relative;
+    top: 495px;
+    z-index: 2;
+    display: inline-block;
+    text-align: center;
+}
+.sm_mv .sm_mv_slide dt .on {
+    background: url(http://image2.megabox.co.kr/mop/home/main/pn3_on.png) 0 0 no-repeat;
+}
+
+dt {
+    font-weight: bold;
+}
+dt, dd {
+    line-height: 1.428571429;
+}
+
+.sm_mv .sm_mv_slide dt span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    text-indent: -999px;
+    overflow: hidden;
+    background: url(http://image2.megabox.co.kr/mop/home/main/pn3.png) 0 0 no-repeat;
+    margin-right: 3px;
+}
+.sm_mv .sm_mv_slide dd {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 525px;
+    text-align: left;
+    display : none;
+    
+}
+dd {
+    margin-left: 0;
+}
+.sm_mv .sm_mv_slide dd a.sm_mv_detail {
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 525px;
+    text-decoration: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.68) 0%, rgba(11, 8, 7, 0.46) 8%, rgba(23, 17, 15, 0.21) 17%, rgba(39, 30, 26, 0) 29%, rgba(132, 105, 91, 0) 100%);
+}
+.sm_mv .sm_mv_slide dd a.sm_mv_detail .sm_mv_text {
+    display: block;
+    position: relative;
+    width: 970px;
+    margin: 0 auto;
+    top: 90px;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 1px #000000;
+    line-height: 36px;
+}
+.sm_mv .sm_mv_slide dd a.sm_mv_detail .sm_mv_text strong {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 400;
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 19px;
+    background: url(http://image2.megabox.co.kr/mop/home/main/h2_bg.png) 0 100% no-repeat;
+}
+.sm_mv .sm_mv_slide dd a.sm_mv_detail .sm_mv_text span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 29px;
+    color: #fff;
+}
+.sm_mv .sm_mv_slide dd div.sm_mv_bg {
+    height: 525px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    overflow: hidden;
+    background-size: cover;
+}
+
+#stp_btn {
+    width: 16px;
+    position: relative;
+    top: -3px;
+}
+
+
+/*박스오피스영역*/
+
+.movie-chart {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.redirect {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #333;
+    text-decoration: underline;
+    padding-right: 3%;
+}
+
+.section-title {
+    margin: 32px;
+    margin-bottom: 16px;
+}
+
 .content-wrapper {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 5%;
 }
 
 .movie-content {
@@ -114,11 +238,6 @@ h1 {
         width: 25%;
     }
 }
-@media(min-width: 1400px) {
-    .movie-content {
-        width: 20%;
-    }
-}
 
 .movie-thumb {width: 100%;}
 
@@ -134,12 +253,12 @@ h1 {
     cursor: pointer;
     width: 25px;
     margin-right: 5%;
-    margin-left: 40%;
+    margin-left: 30%;
 }
 .ticket-btn {
-    width: 60px;
+    width: 90px;
     height: 25px;
-    background-image: url("../img/reserve_btn.png");
+    background-image: url("../img/icon/reserve_btn.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
