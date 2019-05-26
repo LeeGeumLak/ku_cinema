@@ -20,7 +20,7 @@ public class customerController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	String Login(String ID, String PW) {
 		customer cus = customerservice.FindUser(ID);
 		if(cus!=null && cus.getPW().equals(PW))
