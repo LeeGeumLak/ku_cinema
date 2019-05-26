@@ -39,7 +39,7 @@
                             for(var l=1; l<len-1; l++) {
                                 sum += Number(arr[l]);
                                 if(k == sum) {
-                                    tag += "td='span'";
+                                    tag += "id='span'";
                                 }
                             }
                             tag += ">";
@@ -92,14 +92,14 @@
             .seat {cursor: pointer;}
             .seat p {
                 display: inline-block;
-                width: 80px;
-                height : 40px;
+                width: 40px;
+                height : 20px;
                 border: 1px solid #3d3d3d;
                 text-align: center;
-                padding-top: 20px; 
+                padding: 10px 0; 
                 margin: 3px;
             }
-            #span p {margin-right: 20px;}
+            #span p {margin-right: 40px;}
             .hoverColor {background-color: #e5e5e5;}
             .selectColor {background-color: cornflowerblue;}
         </style>
