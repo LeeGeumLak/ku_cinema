@@ -1,15 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그인</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>LOGIN PAGE</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/btn.js"></script>
+        <script>
+            $(function() {
+              var formFields = $('.form-field');
 
-<body>
-<form action="/" method="POST">
-ID: <input type="text" name="ID"><br>
-PW: <input type="text" name="PW"><br>
-<input type="submit" value="Login">
-</form>
-</body>
+              formFields.each(function() {
+                var field = $(this);
+                var input = field.find('input');
+                var label = field.find('label');
+
+                function checkInput() {
+                  var valueLength = input.val().length;
+
+                  if (valueLength > 0 ) {
+                    label.addClass('freeze')
+                  } else {
+                        label.removeClass('freeze')
+                  }
+                }
+
+                input.change(function() {
+                  checkInput()
+                })
+              });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- 상단 배너 영역-->
+        <div class="banner-wrapper">
+            <div class="btn_close"></div>
+            <img class="banner-ad" src="img/banner/banner-top.jpg">
+        </div>
+        
+        <!--헤더 시작-->
+        <header>
+            <nav>
+                <div class="clearfix">
+                    <ul class="submenu-wrapper">
+                        <li class="submenu">로그인</li>
+                        <li class="submenu">회원가입</li>
+                        <li class="submenu">고객센터</li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>cinema ku</h1>
+            
+            <ul class="mainmenu-wrapper">
+                <li class="mainmenu">영화</li>
+                <li class="mainmenu">예매</li>
+                <li class="mainmenu">극장</li>
+            </ul>
+        </header>
+        
+        <section>
+            <div class="float-label-form">
+                <form class="login-form">
+                    <div class="form-field">
+                        <input type="text" name="id">
+                        <label for="id">ID</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="password" name="password">
+                        <label for="password">PW</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="submit" name="login" value="login">
+                    </div>
+                </form>
+                <p class="subtext">ID/PW찾기</p>
+                <p class="subtext">회원가입</p>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                CINEMA KU<br>
+                (05029) 서울시 광진구 능동로 120 건국대학교 TEL. 02-450-3114<br>
+                COPYRIGHT OSSP1 CINEMA KU. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+        <!--풋터 끝-->
+    </body>
 </html>
