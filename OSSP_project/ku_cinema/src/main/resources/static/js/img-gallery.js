@@ -59,14 +59,14 @@ $(function() {
         if($("#stp_btn").val() == "중지") {
             clearInterval(set);
             $("#stp_btn").attr("value", "시작");
-            $("#stp_btn").attr("src", "img/icon/start_btn.png");
+            $("#stp_btn").attr("th:src", "@{/img/icon/start_btn.png}");
         }
         else if($("#stp_btn").val() == "시작") {
             set = setInterval(function(){
                startFnc();
             }, 2000);
             $("#stp_btn").attr("value", "중지");
-            $("#stp_btn").attr("src", "img/icon/stp_btn.png");
+            $("#stp_btn").attr("th:src", "@{/img/icon/stp_btn.png}");
         }
     })
 })
