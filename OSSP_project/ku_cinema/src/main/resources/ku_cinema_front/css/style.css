@@ -278,3 +278,91 @@ dd {
 }
 
 /*-----------컨텐츠영역 끝----------*/
+
+/*-----------로그인영역 시작----------*/
+.form-field {position: relative;}
+input+label {
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    transition: transform 0.2s ease;
+}
+
+input:focus + label, input + label.freeze {
+    font-size: 0.8em;
+    font-weight: 400;
+    transform: translateY(-2em);
+}
+
+.float-label-form {
+    margin: 0 auto;
+    width: 300px;
+    padding: 10% 0;
+}
+
+.form-field {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1.6em;
+    border: 1px solid #e5e5e5;
+}
+
+.form-field:last-of-type {
+    margin-bottom: 0;
+}
+
+input + label {
+  color: #e5e5e5;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+    font-size: inherit;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    margin-bottom: 0;
+    transition: all 200ms ease;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #333;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid blue;
+}
+
+.subtext {
+    font-size: 0.8em;
+    float: left;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+/*-----------풋터영역 시작----------*/
+footer {background-color: #688F4E;}
+.footer-content {
+    max-width: 1200px;
+    font-size: 0.8em;
+    line-height: 1.4;
+    margin: 0 10%;
+    margin-top: 50px;
+    padding: 20px 0;
+}
+/*-----------풋터영역 끝----------*/
