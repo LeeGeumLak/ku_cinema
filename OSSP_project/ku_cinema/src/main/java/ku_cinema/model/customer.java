@@ -9,8 +9,7 @@ public class customer implements Serializable {
 	private static final long serialVersionUID = 123L;
 	
 	@Id
-	private String ID;
-	
+	private String iD;
 	private String PW;
 	private String Name;
 	private String Cellphone;
@@ -19,11 +18,11 @@ public class customer implements Serializable {
 	private int Coupon;
 	
 	public String getID() {
-		return this.ID;
+		return this.iD;
 	}
 	
 	public void setID(String ID) {
-		this.ID = ID;
+		this.iD = ID;
 	}
 	
 	public String getPW() {

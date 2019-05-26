@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `movie`.`customer` (
   `PW` VARCHAR(30) NOT NULL,
   `name` VARCHAR(20) NOT NULL,
   `cellPhone` VARCHAR(20) NOT NULL,
-  `email` VARCHAR(45) NULL,
-  `mileage` INT NULL,
-  `coupon` INT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `mileage` INT NULL DEFAULT 0,
+  `coupon` INT NULL DEFAULT 0,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `movie`.`reservation` (
   `movie_name` VARCHAR(45) NOT NULL,
   `movie_seat` VARCHAR(255) NOT NULL,
   `number` INT NOT NULL,
-  `refund` TINYINT NULL,
   PRIMARY KEY (`reservationID`),
   INDEX `ID_idx` (`ID` ASC) VISIBLE,
   CONSTRAINT `ID_from_rev_to_cus`
