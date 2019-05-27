@@ -14,6 +14,8 @@ public class customerController {
 
 	@Autowired
 	customerService customerservice;
+	@Autowired
+	authorService authorservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String mainpage() {
@@ -32,5 +34,12 @@ public class customerController {
 			return "index";
 		else
 			return "redirect:login";
+	}
+	
+	@GetMapping(value = "/{ID}")
+	public @ResponseBody String authorconfig(@PathVariable String ID) {
+		
+		author auth = authorservice.FindAuthorUser(ID);
+		return auth.getRole();
 	}
 }
