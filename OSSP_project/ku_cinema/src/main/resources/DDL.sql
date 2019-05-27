@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `movie`.`customer` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `movie`.`customer` (
   `ID` VARCHAR(20) NOT NULL,
-  `PW` VARCHAR(30) NOT NULL,
+  `PW` VARCHAR(80) NOT NULL,
   `name` VARCHAR(20) NOT NULL,
   `cellPhone` VARCHAR(20) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -237,7 +237,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `movie`.`author` (
   `ID` VARCHAR(20) NOT NULL,
   `role` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`ID`),
+  `serial` INT NOT NULL,
+  PRIMARY KEY (`serial`),
   CONSTRAINT `ID_from_auth_to_cus`
     FOREIGN KEY (`ID`)
     REFERENCES `movie`.`customer` (`ID`)

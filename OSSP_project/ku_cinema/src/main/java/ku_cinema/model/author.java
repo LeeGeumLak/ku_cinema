@@ -9,8 +9,13 @@ public class author implements Serializable {
 	private static final long serialVersionUID = 124L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int serial;
+	//@ManyToOne
+	//@JoinColumn(name="customer_iD")
 	private String iD;
-	private String role;
+	@Column(name="role")
+	private String authorities;
 	
 	
 	public void setID (String ID) {
@@ -21,12 +26,12 @@ public class author implements Serializable {
 		return this.iD;
 	}
 	
-	public void setRole(String role) {
-		this.role = role;
+	public void setRole(String authorities) {
+		this.authorities = authorities;
 	}
 	
 	public String getRole() {
-		return this.role;
+		return this.authorities;
 	}
 	
 }

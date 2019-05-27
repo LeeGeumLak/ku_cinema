@@ -3,6 +3,11 @@ package ku_cinema.model;
 import java.io.Serializable;		// for using java serialization. -> I/O byte transforming.
 import javax.persistence.*;
 
+import java.util.Collection; // group of objects.
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 public class customer implements Serializable {
 	
@@ -16,6 +21,8 @@ public class customer implements Serializable {
 	private String Email;
 	private int Mileage;
 	private int Coupon;
+	@Transient
+	private Collection<? extends GrantedAuthority> authorities;	
 	
 	public String getID() {
 		return this.iD;
@@ -72,4 +79,13 @@ public class customer implements Serializable {
 	public void setCoupon(int Coupon) {
 		this.Coupon = Coupon;
 	}
+	
+	public Collection <? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+	
+	public void setAuthorities(Collection <? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
+	
 }
