@@ -228,6 +228,25 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+-- -----------------------------------------------------
+-- Table `movie`.`author`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `movie`.`author` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `movie`.`author` (
+  `ID` VARCHAR(20) NOT NULL,
+  `role` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `ID_from_auth_to_cus`
+    FOREIGN KEY (`ID`)
+    REFERENCES `movie`.`customer` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
