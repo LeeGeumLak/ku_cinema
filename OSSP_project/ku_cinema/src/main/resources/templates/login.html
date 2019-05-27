@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>LOGIN PAGE</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/btn.js"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/btn.js}"></script>
         <script>
             $(function() {
               var formFields = $('.form-field');
@@ -38,7 +38,7 @@
         <!-- 상단 배너 영역-->
         <div class="banner-wrapper">
             <div class="btn_close"></div>
-            <img class="banner-ad" src="img/banner/banner-top.jpg">
+            <img class="banner-ad" th:src="@{/img/banner/banner-top.jpg}">
         </div>
         
         <!--헤더 시작-->
@@ -63,13 +63,13 @@
         
         <section>
             <div class="float-label-form">
-                <form class="login-form">
+                <form class="login-form" action="/ku_cinema/" method="POST">
                     <div class="form-field">
-                        <input type="text" name="id">
+                        <input type="text" name="ID">
                         <label for="id">ID</label>
                     </div>
                     <div class="form-field">
-                        <input type="password" name="password">
+                        <input type="password" name="PW">
                         <label for="password">PW</label>
                     </div>
                     <div class="form-field">

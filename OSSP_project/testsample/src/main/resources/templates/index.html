@@ -45,7 +45,7 @@
             <nav>
                 <div class="clearfix">
                     <ul class="submenu-wrapper">
-                        <li class="submenu">로그인</li>
+                        <li class="submenu"><a th:href="@{/login.html}">로그인</a></li>
                         <li class="submenu">회원가입</li>
                         <li class="submenu">고객센터</li>
                     </ul>
@@ -121,7 +121,7 @@
         <!--무비차트-->
         <section class="movie-chart">
             <h2 class="section-title">박스오피스</h2>
-            <a class="redirect" href="moviechart.html">전체보기</a>
+            <a class="redirect" th:href="@{/moviechart.html}">전체보기</a>
             <div class="content-wrapper clearfix">
                 <content class="movie-content">
                     <img class="movie-thumb" th:src="@{/img/thumb/81745_185.jpg}"/>

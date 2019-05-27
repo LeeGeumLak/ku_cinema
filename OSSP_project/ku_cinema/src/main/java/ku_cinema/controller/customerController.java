@@ -16,17 +16,21 @@ public class customerController {
 	customerService customerservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	String main() {
+	String mainpage() {
 		return "index";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	String Login(String ID, String PW) {
-		customer cus = customerservice.FindUser(ID);
-		if(cus!=null && cus.getPW().equals(PW))
-			return "index";
-		else
-			return "login";
+	String Loginpage() {
+		return "login";
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	String LoginSuccess(String ID, String PW, Model model) {
+		customer cus = customerservice.FindUser(ID);
+		if((cus!= null) && (cus.getPW()).equals(PW))
+			return "index";
+		else
+			return "redirect:login";
+	}
 }
