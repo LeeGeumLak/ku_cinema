@@ -1,0 +1,13 @@
+.seat {cursor: pointer;}
+.seat p {
+    display: inline-block;
+    width: 40px;
+    height : 20px;
+    border: 1px solid #3d3d3d;
+    text-align: center;
+    padding: 10px 0; 
+    margin: 3px;
+}
+#span p {margin-right: 40px;}
+.hoverColor {background-color: #e5e5e5;}
+.selectColor {background-color: cornflowerblue;}

@@ -30,6 +30,7 @@ nav {
 .submenu-wrapper {
     float: right;
     margin-top: 8px;
+    margin-right: 16px;
 }
 
 .submenu {
@@ -296,15 +297,14 @@ input:focus + label, input + label.freeze {
 
 .float-label-form {
     margin: 0 auto;
-    width: 300px;
+    max-width: 1200px;
     padding: 10% 0;
 }
 
 .form-field {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     margin-bottom: 1.6em;
-    border: 1px solid #e5e5e5;
 }
 
 .form-field:last-of-type {
@@ -318,13 +318,30 @@ input + label {
 }
 
 input[type="text"], input[type="password"] {
-  width: 100%;
+  width: 60%;
   padding: 8px;
-  border: none;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
+    position: absolute;
+    right: 0;
+}
+
+.tel-wrapper {
+    display: inline;
+    width: 60%;
+    position: absolute;
+    right: 0;
+}
+
+input[type="tel"] {
+    width: 25%;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
 }
 
 input[type="submit"] {
+    display: block;
+    margin: 0 auto;
     font-size: inherit;
     background-color: #333;
     color: #ffffff;
@@ -334,7 +351,11 @@ input[type="submit"] {
     border: 1px solid #333;
     margin-bottom: 0;
     transition: all 200ms ease;
-    width: 100%;
+    width: 100px;
+}
+
+.signup-btn {
+    float: right;
 }
 
 input[type="submit"]:hover {
@@ -348,6 +369,9 @@ input:focus {
     border: 1px solid blue;
 }
 
+.subtext-wrapper {
+    margin: 0 10%;
+}
 .subtext {
     font-size: 0.8em;
     float: left;

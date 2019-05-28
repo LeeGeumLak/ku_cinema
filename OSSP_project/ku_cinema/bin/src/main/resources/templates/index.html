@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>CINEMA KU Main PAGE</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/seat-style.css}">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/btn.js}"></script>
+        <script type="text/javascript" th:src="@{/js/img-gallery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/seat.js}"></script>
+        <script>
+            $(function() {                
+                function setAgeIcon(age) {
+                    if(age == "청불")  {
+                        $(this).append("<img class='age-img' src='img/icon/18.png'>");
+                    }
+                    else if(age == "12")  {
+                        $(this).append("<img class='age-img' src='img/icon/12.png'>");
+                    }
+                    else if(age == "15")  {
+                        $(this).append("<img class='age-img' src='img/icon/15.png'>");
+                    }
+                    else if(age == "미정")  {
+                        $(this).append("<img class='age-img' src='img/icon/none.png'>");
+                    }
+                    else if(age == "전체")  {
+                        $(this).append("<img class='age-img' src='img/icon/all.png'>");
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <!-- 상단 배너 영역-->
+        <div class="banner-wrapper">
+            <div class="btn_close"></div>
+            <img class="banner-ad" th:src="@{/img/banner/banner-top.jpg}"/>
+        </div>
+        
+        <!--헤더 시작-->
+        <header>
+            <nav>
+                <div class="clearfix">
+                    <ul class="submenu-wrapper">
+                         <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
+                        <li class="submenu">회원가입</li>
+                        <li class="submenu">고객센터</li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>cinema ku</h1>
+            
+            <ul class="mainmenu-wrapper">
+                <li class="mainmenu">영화</li>
+                <li class="mainmenu">예매</li>
+                <li class="mainmenu">극장</li>
+            </ul>
+        </header>
+        <!--헤더 끝-->
+        
+        <!--컨텐츠 시작-->
+        
+        <!--이미지갤러리-->
+        <div class="section no1">
+            <div class="sm_mv" style="overflow-x:hidden;">
+                <dl class="sm_mv_slide" style="margin: 0px;">
+                    <!-- 이미지 영역  1-->
+                    <dd  style="display: block;">
+                            <div class="sm_mv_bg" th:style="'background-image: url(' + @{/img/banner/47ACB2-E6A6-4855-A3CD-357577F987EC.jpg} +');'"></div>
+                    </dd>
+                    <!-- 하단 DOT 포인터 영역 -->
+                    <dt style="display: inline-block;">
+                        <!-- class=on -->
+                        <span class="dot on">도트</span>
+                    </dt>
+
+                    <!-- 이미지 영역 2 -->
+                    <dd>
+                            <div class="sm_mv_bg" th:style="'background-image: url(' + @{/img/banner/B21A8A-EFA4-4A37-9826-3FD826052FDB.jpg}+');'"></div>
+                    </dd>
+                    <!-- 하단 DOT 포인터 영역 -->
+                    <dt style="display: inline-block;">
+                        <!-- class=on -->
+                        <span class="dot">도트</span>
+                    </dt>
+
+                    <!-- 이미지 영역 3 -->
+                    <dd>
+                        <!-- class=on -->
+                        <a href="#" class="sm_mv_detail" >
+                            <span class="sm_mv_text">
+                                <strong>알라딘</strong>
+                                <span>Aladdin</span>
+                            </span>
+                        </a>
+                        <div class="sm_mv_bg" th:style="'background-image: url('+@{/img/banner/E0556D-D0D6-4A2F-B0DD-BB14F07A1EFF.jpg}+');'"></div>
+                    </dd>
+                    <!-- 하단 DOT 포인터 영역 -->
+                    <dt style="display: inline-block;">
+                        <span class="dot">도트</span>
+                    </dt>
+
+                    <!-- 이미지 영역 4 -->
+                    <dd>
+                        <div class="sm_mv_bg" th:style="'background-image: url('+@{/img/banner/731AD6-5D6F-45B7-87CC-9791721901FF.jpg}+');'"></div>
+                    </dd>
+                    <!-- 하단 DOT 포인터 영역 -->
+                    <dt style="display: inline-block;">
+                        <span class="dot">도트</span>
+                    </dt>
+                    <dt style="display: inline-block;">
+                        <input type = "image" th:src="@{/img/icon/stp_btn.png}" value = "중지", id = "stp_btn">
+                    </dt>
+                </dl>
+            </div>
+        </div>
+        
+        <!--무비차트-->
+        <section class="movie-chart">
+            <h2 class="section-title">박스오피스</h2>
+            <a class="redirect" href="moviechart.html">전체보기</a>
+            <div class="content-wrapper clearfix">
+                <content class="movie-content">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81745_185.jpg}"/>
+                    <div class="movie-info">
+                        <div class="movie-age" value="청불"><img class='age-img' th:src='@{/img/icon/18.png}'/></div>
+                        <h3 class="movie-title">악인전</h3>
+                    </div>
+                    <span class="icon-wrapper">
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}"/>
+                        <a class="ticket-btn" href="./reservation.html"></a>
+                    </span>
+                </content>
+                <content class="movie-content">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81749_185.jpg}"/>
+                    <div class="movie-info">
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'/></div>
+                        <h3 class="movie-title">어벤져스: 엔드게임</h3>
+                    </div>
+                    <span class="icon-wrapper">
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}"/>
+                        <a class="ticket-btn" href="./reservation.html"></a>
+                    </span>
+                </content>
+                <content class="movie-content">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81759_185.jpg}"/>
+                    <div class="movie-info">
+                        <div class="movie-age" value="15"><img class='age-img' th:src='@{/img/icon/15.png}'/></div>
+                        <h3 class="movie-title">걸캅스</h3>
+                    </div>
+                    <span class="icon-wrapper">
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}"/>
+                        <a class="ticket-btn" href="./reservation.html"></a>
+                    </span>
+                </content>
+                <content class="movie-content">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81752_185.jpg}"/>
+                    <div class="movie-info">
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'/></div>
+                        <h3 class="movie-title">배심원들</h3>
+                    </div>
+                    <span class="icon-wrapper">
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}"/>
+                        <a class="ticket-btn" href="./reservation.html"></a>
+                    </span>
+                </content>
+            </div>
+        </section>
+        <!--컨텐츠 끝-->
+        
+        <!--풋터 시작-->
+        <footer>
+            <div class="footer-content">
+                CINEMA KU<br>
+                (05029) 서울시 광진구 능동로 120 건국대학교 TEL. 02-450-3114<br>
+                COPYRIGHT OSSP1 CINEMA KU. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+        <!--풋터 끝-->
+    </body>
+</html>
