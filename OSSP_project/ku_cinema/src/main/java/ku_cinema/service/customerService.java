@@ -10,12 +10,12 @@ import org.springframework.transaction.annotation.*;
 
 
 @Service
-@Transactional
 public class customerService {
 
 	@Autowired
 	customerRepo customerrepo;
 	
+	@Transactional
 	public customer FindUser(String ID) {
 		return customerrepo.findByID(ID);
 	}

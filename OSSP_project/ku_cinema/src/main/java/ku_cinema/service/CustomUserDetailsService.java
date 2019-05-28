@@ -21,7 +21,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService{
-		// userdetailsservice도 뜯어봐야 할듯.. 히히!
+	
 	private static final String ROLE_PREFIX = "ROLE_";
 	// final ... constant...
 	

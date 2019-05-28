@@ -1,8 +1,6 @@
 package ku_cinema.model;
 
 import org.springframework.security.core.userdetails.User;
-// 한 번 뜯어봐야겠다... 이 안에 무엇이 있는지...
-// reference : https://4urdev.tistory.com/53
 
 public class SecurityCustomer extends User {
 	
@@ -14,7 +12,7 @@ public class SecurityCustomer extends User {
 		
 		super(cus.getID(), cus.getPW(), cus.getAuthorities());
 	}
-	// 한번 user를 뜯어봐야 할 듯.
+	// User. constructor 2개.
 	
 	public String getIP() {
 		return this.ip;
@@ -31,3 +29,6 @@ public class SecurityCustomer extends User {
 	// security에서 제공하는 user service를 사용해서 user 객체를 다뤄야 한다. (userdetailservice)
 
 }
+
+
+//reference : https://4urdev.tistory.com/53

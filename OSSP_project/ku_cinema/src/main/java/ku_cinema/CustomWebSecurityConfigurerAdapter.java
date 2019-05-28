@@ -15,11 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import ku_cinema.service.CustomUserDetailsService;
-// add customuserdetail.
+// add customeuserdetail.
 
 @EnableWebSecurity
 public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
-	// 여기도 들어가봐야 한다.... WebSecurityConfigurerAdapter...
 	
 	@Autowired
 	CustomUserDetailsService customuserdetailsservice;

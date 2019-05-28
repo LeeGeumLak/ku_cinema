@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.*;
 
 @Service
-@Transactional
 public class authorService {
 
 	@Autowired
 	authorRepo authorrepo;
 	
+	@Transactional
 	public author FindAuthorUser(String ID) {
 		return authorrepo.findByID(ID);
 	}
