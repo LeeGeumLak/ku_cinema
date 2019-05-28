@@ -1,1 +1,0 @@
-insert into customer (ID, PW, name, cellPhone, email, mileage, coupon)values ("goodmovie", "1234", "홍길동", "01012345678", "good@naver.com", 0, 0);

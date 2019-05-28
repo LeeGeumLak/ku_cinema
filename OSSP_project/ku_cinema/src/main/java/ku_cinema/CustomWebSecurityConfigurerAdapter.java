@@ -31,7 +31,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/ku_cinema/**");
+		web.ignoring().antMatchers("/resource/**");
 	}
 	
 	@Override
