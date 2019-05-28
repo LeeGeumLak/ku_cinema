@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>MOVIE CHART PAGE</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script type="text/javascript" src="./js/btn.js"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/btn.js}"></script>
     </head>
     <body>
         <div class="banner-wrapper">
             <div class="btn_close"></div>
-            <img class="banner-ad" src="img/banner/banner-top.jpg">
+            <img class="banner-ad" th:src="@{/img/banner/banner-top.jpg}">
         </div>
         
         <!--헤더 시작-->
@@ -20,8 +20,8 @@
             <nav>
                 <div class="clearfix">
                     <ul class="submenu-wrapper">
-                        <li class="submenu">로그인</li>
-                        <li class="submenu">회원가입</li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
                         <li class="submenu">고객센터</li>
                     </ul>
                 </div>
@@ -41,124 +41,124 @@
             <h2 class="section-title">무비차트</h2>
             <div class="content-wrapper clearfix">
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81745_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81745_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="청불"><img class='age-img' src='img/icon/18.png'></div>
+                        <div class="movie-age" value="청불"><img class='age-img' th:src='@{/img/icon/18.png}'></div>
                         <h3 class="movie-title">악인전</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81749_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81749_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="12"><img class='age-img' src='img/icon/12.png'></div>
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'></div>
                         <h3 class="movie-title">어벤져스: 엔드게임</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81759_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81759_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="15"><img class='age-img' src='img/icon/15.png'></div>
+                        <div class="movie-age" value="15"><img class='age-img' th:src='@{/img/icon/15.png}'></div>
                         <h3 class="movie-title">걸캅스</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81752_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81752_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="12"><img class='age-img' src='img/icon/12.png'></div>
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'></div>
                         <h3 class="movie-title">배심원들</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81757_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81757_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="12"><img class='age-img' src='img/icon/12.png'></div>
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'></div>
                         <h3 class="movie-title">어린 의뢰인</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81727_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81727_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="전체"><img class='age-img' src='img/icon/all.png'></div>
+                        <div class="movie-age" value="전체"><img class='age-img' th:src='@{/img/icon/all.png}'></div>
                         <h3 class="movie-title">명탐정 피카츄</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81774_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81774_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="15"><img class='age-img' src='img/icon/15.png'></div>
+                        <div class="movie-age" value="15"><img class='age-img' th:src='@{/img/icon/15.png}'></div>
                         <h3 class="movie-title">기생충</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81546_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81546_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="12"><img class='age-img' src='img/icon/12.png'></div>
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'></div>
                         <h3 class="movie-title">고질라 킹 오브 몬스터</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81847_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81847_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="미정"><img class='age-img' src='img/icon/none.png'></div>
+                        <div class="movie-age" value="미정"><img class='age-img' th:src='@{/img/icon/none.png}'></div>
                         <h3 class="movie-title">로켓맨</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81218_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81218_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="12"><img class='age-img' src='img/icon/12.png'></div>
+                        <div class="movie-age" value="12"><img class='age-img' th:src='@{/img/icon/12.png}'></div>
                         <h3 class="movie-title">엑스맨-다크 피닉스</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
                 <content class="movie-content">
-                    <img class="movie-thumb" src="img/thumb/81631_185.jpg">
+                    <img class="movie-thumb" th:src="@{/img/thumb/81631_185.jpg}">
                     <div class="movie-info">
-                        <div class="movie-age" value="미정"><img class='age-img' src='img/icon/none.png'></div>
+                        <div class="movie-age" value="미정"><img class='age-img' th:src='@{/img/icon/none.png}'></div>
                         <h3 class="movie-title">맨 인 블랙-인터내셔널</h3>
                     </div>
                     <span class="icon-wrapper">
-                        <img class="like-btn" src="img/icon/empty-heart.png">
-                        <a class="ticket-btn" href="./reservation.html"></a>
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}">
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
                     </span>
                 </content>
             </div>
@@ -167,7 +167,11 @@
         
         <!--풋터 시작-->
         <footer>
-            
+            <div class="footer-content">
+                CINEMA KU<br>
+                (05029) 서울시 광진구 능동로 120 건국대학교 TEL. 02-450-3114<br>
+                COPYRIGHT OSSP1 CINEMA KU. ALL RIGHT RESERVED.
+            </div>
         </footer>
         <!--풋터 끝-->
     </body>

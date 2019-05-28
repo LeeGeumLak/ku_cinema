@@ -46,8 +46,8 @@
             <nav>
                 <div class="clearfix">
                     <ul class="submenu-wrapper">
-                        <li class="submenu">로그인</li>
-                        <li class="submenu">회원가입</li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
                         <li class="submenu">고객센터</li>
                     </ul>
                 </div>
@@ -78,7 +78,7 @@
                 </form>
                 <div class="subtext-wrapper">
                     <p class="subtext">ID/PW찾기</p>
-                    <p class="subtext">회원가입</p>
+                    <a class="subtext" th:href="@{/ku_cinema/signup}">회원가입</a>
                 </div>
             </div>
         </section>
