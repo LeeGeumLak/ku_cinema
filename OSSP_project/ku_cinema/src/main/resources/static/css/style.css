@@ -281,7 +281,10 @@ dd {
 /*-----------컨텐츠영역 끝----------*/
 
 /*-----------로그인영역 시작----------*/
-.form-field {position: relative;}
+.form-field {
+    position: relative;
+    width: 500px;
+}
 input+label {
     position: absolute;
     left: 8px;
@@ -298,11 +301,11 @@ input:focus + label, input + label.freeze {
 .float-label-form {
     margin: 0 auto;
     max-width: 1200px;
-    padding: 10% 0;
+    padding: 3% 0;
 }
 
 .form-field {
-    width: 70%;
+    width: 300px;
     margin: 0 auto;
     margin-bottom: 1.6em;
 }
@@ -326,6 +329,14 @@ input[type="text"], input[type="password"] {
     right: 0;
 }
 
+input[name="chk"] {
+    padding: 8px;
+    cursor: pointer;
+    position: absolute;
+    right: -70px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2%;
+}
 .tel-wrapper {
     display: inline;
     width: 60%;
@@ -334,7 +345,7 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="tel"] {
-    width: 25%;
+    width: 39px;
     padding: 8px;
     border: 1px solid #e5e5e5;
 }
