@@ -54,7 +54,7 @@ h1 {
 }
 .mainmenu {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 40px;
 }
 .mainmenu:last-child {margin-right: 0;}
 
@@ -379,14 +379,47 @@ input:focus {
     margin-top: 8px;
 }
 
+/*-----------회원가입 성공창---------*/
+
+.success-signup {
+    text-align: center;
+    margin: 15%;
+}
+
+.success-signup p {
+    padding-bottom: 16px;
+}
+.redirect-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background-color: #688F4E;
+    padding-top: 6px;
+    margin: 8px;
+}
+
+.redirect-btn a {color: #000;}
+
 /*-----------풋터영역 시작----------*/
 footer {background-color: #688F4E;}
+
+footer {
+    display: block;
+    width: 100%;
+}
+
+@media(min-height: 510px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+}
 .footer-content {
     max-width: 1200px;
     font-size: 0.8em;
     line-height: 1.4;
     margin: 0 10%;
-    margin-top: 50px;
     padding: 20px 0;
 }
 /*-----------풋터영역 끝----------*/

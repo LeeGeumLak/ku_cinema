@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입 완료</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    </head>
+    <body>
+        <!-- 상단 배너 영역-->
+        <div class="banner-wrapper">
+            <div class="btn_close"></div>
+            <img class="banner-ad" th:src="@{/img/banner/banner-top.jpg}">
+        </div>
+        
+        <!--헤더 시작-->
+        <header>
+            <nav>
+                <div class="clearfix">
+                    <ul class="submenu-wrapper">
+                        <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
+                        <li class="submenu">고객센터</li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>cinema ku</h1>
+            
+            <ul class="mainmenu-wrapper">
+                <li class="mainmenu">영화</li>
+                <li class="mainmenu">예매</li>
+                <li class="mainmenu">극장</li>
+            </ul>
+        </header>
+        
+        <section class="success-signup clearfix">
+            <p>축하합니다!<br>
+            회원가입에 성공하였습니다.
+            </p>
+            <span class="redirect-btn"><a href="@{/ku_cinema}">메인으로</a></span>
+            <span class="redirect-btn"><a href="@{/ku_cinema/login}">로그인</a></span>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                CINEMA KU<br>
+                (05029) 서울시 광진구 능동로 120 건국대학교 TEL. 02-450-3114<br>
+                COPYRIGHT OSSP1 CINEMA KU. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+        <!--풋터 끝-->
+    </body>
+</html>
