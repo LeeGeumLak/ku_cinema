@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>영화 상세페이지</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/seat-style.css}">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+	   
+        <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/btn.js}"></script>
+        <script type="text/javascript" th:src="@{/js/img-gallery.js}"></script>
+        <script type="text/javascript" th:src="@{/js/seat.js}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+        </head>
+    <body>
+        <!-- 상단 배너 영역-->
+        <div class="banner-wrapper">
+            <div class="btn_close"></div>
+            <img class="banner-ad" th:src="@{/img/banner/banner-top.jpg}"/>
+        </div>
+        
+        <!--헤더 시작-->
+        <header>
+            <nav>
+                <div class="clearfix">
+                    <ul class="submenu-wrapper">
+                        <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
+                        <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
+                        <li class="submenu">고객센터</li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>cinema ku</h1>
+            
+            <ul class="mainmenu-wrapper">
+                <li class="mainmenu">영화</li>
+                <li class="mainmenu">예매</li>
+                <li class="mainmenu">극장</li>
+            </ul>
+        </header>
+        <!--헤더 끝-->
+        
+        <!--컨텐츠영역 시작-->
+        <section class="movie-detail">
+            <h2 class="section-title">영화상세</h2>
+            <div class="section-wrapper clearfix">
+                <img class="img-section movie-poster" th:src="@{/img/thumb/81774_1000.jpg}">
+                <div class="info-section">
+                    <h3 class="movie-title">기생충</h3>
+                    <p>감독 <span class="director-name">봉준호</span> / 
+                        출연진 <span class="actor-name">송강호, 이선균, 조여정, 최우식, 박소담, 장혜진</span>
+                    </p>
+                    <p>장르 <span class="genre">드라마</span> / <span class="runtime">131분</span>
+                    </p>
+                    <p>시놉시스<br>
+                        <span style="font-size: 14px;"><strong style="padding-top: 16px;">“폐 끼치고 싶진 않았어요”</strong><br>
+                        전원백수로 살 길 막막하지만 사이는 좋은 기택(송강호) 가족.<br>
+                        장남 기우(최우식)에게 명문대생 친구가 연결시켜 준 고액 과외 자리는<br>
+                        모처럼 싹튼 고정수입의 희망이다.<br>
+                        온 가족의 도움과 기대 속에 박사장(이선균) 집으로 향하는 기우.<br>
+                        글로벌 IT기업 CEO인 박사장의 저택에 도착하자<br>
+                        젊고 아름다운 사모님 연교(조여정)가 기우를 맞이한다.<br>
+
+                        그러나 이렇게 시작된 두 가족의 만남 뒤로, 걷잡을 수 없는 사건이 기다리고 있었으니…</span>
+                    </p>
+                    <div class="rating" style="position: relative;">
+						<div class="my_rate" style="padding-top: 22px;overflow: visible;white-space: nowrap; font-size: 14px;">
+							<span class="score-title">내 평점</span><br>
+                            <div style="display: flex; align-items:flex-end">
+                                <div id="rateYo" style="display: inline-block; margin-top: 12px;"></div>
+                                <span id="movieDetailStarScoreTxt">평점을 입력해주세요</span>
+                            </div>
+						</div>
+					</div>
+                    <div class="icon-wrapper">
+                        <img class="like-btn" th:src="@{/img/icon/empty-heart.png}"/>
+                        <a class="ticket-btn" th:href="@{/ku_cinema/reservation}"></a>
+                    </div>
+                </div>
+            </div>
+             <!--  댓글  -->
+			<div class="popup_box">
+					<h3>한줄평 (<span id="movieCommentTotalCount">0</span>)</h3>
+					<!-- 댓글 등록 -->
+					<div class="input">
+						<div class="textarea">
+							<textarea title="댓글쓰기" name="comment" id="content" cols="30" rows="10" maxlength="100" ></textarea>
+                        </div>
+					</div>
+                    <div class="btn_wrap">
+                        <input type="button" id="saveBtn" class="comment_btn"  value="등록" />
+                    </div>
+					<div id="movieCommentList" class="list">
+						<ul class="item">
+                        </ul>
+                    </div>
+                </div>
+        </section>
+        <!--컨텐츠영역 끝-->
+        
+        <script type="text/javascript">
+            function rateText(rating) {
+                if(rating == 1) return "괜히 봤어요"
+                else if(rating == 2) return "기대하진 말아요"
+                else if(rating == 3) return "무난했어요"
+                else if(rating == 4) return "기대해도 좋아요!"
+                else if(rating == 5) return "너무 멋진 영화였어요!"
+                else return "평점을 입력해주세요"
+            }
+            $(function () {
+              $("#rateYo").rateYo({
+                starWidth : "18px",
+                spacing: "3px",
+                fullStar : true,
+                onChange: function (rating, rateYoInstance) {
+                  $(this).next().text(rateText(rating));
+                }
+              });
+                
+                //저장버튼 눌러 댓글
+                $("#saveBtn").click(function(){
+                //현재 날짜 스트링으로 세팅
+                var date = new Date();
+                var year, mon, day;
+                    //연도 뒤의 2자리만 표시
+                    year = date.getFullYear().toString();
+                    year = year.split("20");
+                    year = year[1];
+                    mon = (date.getMonth()+1).toString();
+                    day = date.getDate().toString();
+                    date = year + "." + mon + "." + day;
+				var tmp_cmt = $("#content").val();
+				$("#movieCommentList > ul").prepend('<li>'+
+														'<div class="photo_profile">' + 
+															'<img src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="interpret** 프로필사진 없음">'+
+														'</div>' +
+														'<div class="text">' +
+															'<div class="name">' + 
+																'<strong style="margin-right:8px;">사용자</strong>' +
+																'<span>'+date+'</span>' +
+															'</div>' +
+															'<p>' +
+																'<span class="comment">' + tmp_cmt + '</span>' +
+															'</p>' +
+														'</div>' +
+													'</li>');
+				var cmt_num = $("#movieCommentList li").length;
+				$("#movieCommentTotalCount").text(cmt_num);
+				$("#content").val("");
+			})
+            });
+        </script>
+        
+        <!--풋터 시작-->
+        <footer>
+            <div class="footer-content">
+                CINEMA KU<br>
+                (05029) 서울시 광진구 능동로 120 건국대학교 TEL. 02-450-3114<br>
+                COPYRIGHT OSSP1 CINEMA KU. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+        <!--풋터 끝-->
+    </body>
+</html>

@@ -63,6 +63,7 @@
         
         <section>
             <div class="float-label-form">
+                <h3 class="section-title">로그인</h3>
                 <form class="login-form" action="/ku_cinema/" method="POST">
                     <div class="form-field">
                         <input type="text" name="ID">
@@ -72,14 +73,16 @@
                         <input type="password" name="PW">
                         <label for="password">PW</label>
                     </div>
+                    <div class="subtext-wrapper clearfix">
+                        <p class="subtext">ID/PW찾기</p>
+                        <a class="subtext" th:href="@{/ku_cinema/signup}">회원가입</a>
+                    </div>
                     <div class="form-field">
                         <input type="submit" name="login" value="login">
                     </div>
+                    
                 </form>
-                <div class="subtext-wrapper">
-                    <p class="subtext">ID/PW찾기</p>
-                    <a class="subtext" th:href="@{/ku_cinema/signup}">회원가입</a>
-                </div>
+                
             </div>
         </section>
         
