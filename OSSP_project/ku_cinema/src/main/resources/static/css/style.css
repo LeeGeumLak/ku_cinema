@@ -59,6 +59,7 @@ h1 {
     text-align: center;
     padding: 8px 0;
     background-color: #688F4E;
+    cursor: default;
 }
 .mainmenu {
     display: inline-block;
@@ -514,11 +515,17 @@ textarea {
     align-items: center;
     padding: 8px 0;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .reservation-area li img {
     width: 20px;
     margin: 0 8px;
+}
+
+.back-blk {
+    background-color: #333;
+    color: #fff;
 }
 
 /*-----------컨텐츠영역 끝----------*/
