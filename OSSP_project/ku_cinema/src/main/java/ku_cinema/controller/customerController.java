@@ -3,6 +3,8 @@ package ku_cinema.controller;
 import ku_cinema.model.*;
 import ku_cinema.service.*;
 
+//import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ public class customerController {
 	customerService customerservice;
 	@Autowired
 	authorService authorservice;
+	@Autowired
+	CustomUserDetailsService customuserdetailsservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String mainpage() {
@@ -27,13 +31,27 @@ public class customerController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/", method = RequestMethod.POST)
 	String LoginSuccess(String ID, String PW, Model model) {
 		customer cus = customerservice.FindUser(ID);
 		if((cus!= null) && (cus.getPW()).equals(PW))
 			return "index";
 		else
 			return "redirect:login";
+	}*/
+	
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	String Security_Login(String ID, String PW, Model mode) {
+		// SecurityCustomer s_cus = customuserdetailsservice.loadUserByUsername(ID);
+		
+		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
+		String B_PW = crypto.encode(PW);
+		System.out.println(B_PW);
+		 if(customuserdetailsservice.loadUserByUsername(ID).getPassword().equals(B_PW))
+			 return "index";
+		 else
+			 return "redirect:login";
 	}
 	
 	@GetMapping(value = "/{ID}")
