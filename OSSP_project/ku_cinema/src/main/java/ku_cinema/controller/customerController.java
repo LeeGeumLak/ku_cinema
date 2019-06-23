@@ -42,13 +42,11 @@ public class customerController {
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	String Security_Login(String ID, String PW, Model mode) {
+	String Security_Login(String ID, String PW, Model model) {
 		// SecurityCustomer s_cus = customuserdetailsservice.loadUserByUsername(ID);
 		
 		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
-		String B_PW = crypto.encode(PW);
-		System.out.println(B_PW);
-		 if(customuserdetailsservice.loadUserByUsername(ID).getPassword().equals(B_PW))
+		 if(crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword()))
 			 return "index";
 		 else
 			 return "redirect:login";
