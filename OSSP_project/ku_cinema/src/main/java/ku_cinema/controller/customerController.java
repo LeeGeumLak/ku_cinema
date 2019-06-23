@@ -30,21 +30,10 @@ public class customerController {
 	String Loginpage() {
 		return "login";
 	}
-	
-	/*@RequestMapping(value = "/", method = RequestMethod.POST)
-	String LoginSuccess(String ID, String PW, Model model) {
-		customer cus = customerservice.FindUser(ID);
-		if((cus!= null) && (cus.getPW()).equals(PW))
-			return "index";
-		else
-			return "redirect:login";
-	}*/
-	
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	String Security_Login(String ID, String PW, Model mode) {
-		// SecurityCustomer s_cus = customuserdetailsservice.loadUserByUsername(ID);
-		
+
 		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
 		String B_PW = crypto.encode(PW);
 		System.out.println(B_PW);
