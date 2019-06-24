@@ -19,5 +19,4 @@ public class customerService {
 	public customer FindUser(String ID) {
 		return customerrepo.findByID(ID);
 	}
-	
 }
