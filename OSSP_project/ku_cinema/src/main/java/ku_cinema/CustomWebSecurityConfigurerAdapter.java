@@ -30,8 +30,9 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/resources/**");
-		
+		web.ignoring().antMatchers("/**");
+		//web.ignoring().antMatchers("/resources/**");
+		//web.ignoring().antMatchers("/ku_cinema/**");
 	}
 	
 	@Override
@@ -39,7 +40,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 		//http.authorizeRequests().antMatchers("/ku_cinema/login").authenticated().antMatchers("/**").permitAll();
 		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin();
 		http.authorizeRequests()
-			.antMatchers("/**").authenticated();
+			.antMatchers("/ku_cinema/login").authenticated();
 			//.antMatchers("/ku_cinema/reservation/**", "/ku_cinema/mypage/**", "/ku_cinema/**").denyAll()
 			
 		//.antMatchers("/ku_cinema/reservation/**", "/ku_cinema/mypage/**", "ku_cinema/login").authenticated()
