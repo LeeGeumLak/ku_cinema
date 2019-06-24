@@ -37,7 +37,7 @@ public class customerController {
 		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
 		String B_PW = crypto.encode(PW);
 		System.out.println(B_PW);
-		 if(customuserdetailsservice.loadUserByUsername(ID).getPassword().equals(B_PW))
+		 if(crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword()))
 			 return "index";
 		 else
 			 return "redirect:login";
