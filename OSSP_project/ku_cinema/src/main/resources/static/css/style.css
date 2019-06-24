@@ -201,11 +201,10 @@ dd {
 }
 
 
+
+
 /*박스오피스영역*/
 
-.movie-chart {
-    margin: 0 auto;
-}
 
 .redirect {
     display: block;
@@ -213,24 +212,24 @@ dd {
     font-size: 14px;
     color: #333;
     text-decoration: underline;
-    padding-right: 3%;
+    padding-right: 8%;
 }
 
 .section-title {
     font-size: 32px;
-    margin: 32px 16%;
+    margin: 32px 8%;
     margin-bottom: 8px;
     padding-bottom: 8px;
     border-bottom: 3px solid;
 }
 
-.movie-detail .section-title {
-    margin: 32px auto;
-}
-
 .content-wrapper {
     width: 100%;
-    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.movie-detail .section-title {
+    margin: 32px auto;
 }
 
 .movie-content {
@@ -238,7 +237,7 @@ dd {
     padding: 2%;
     box-sizing: border-box;
     float: left;
-    width: 100%;
+    width: 25%;
     transition: all 1s;
 }
 
@@ -324,9 +323,11 @@ dd {
     transition: all 1s;
 }
 .movie-title {
-    font-size: 24px;
+    font-size: 21px;
     margin-bottom: 8px;
 }
+
+.info-section .movie-title {font-size: 24px;}
 
 @media(min-width: 380px) {
     .img-section {
@@ -473,7 +474,7 @@ textarea {
     padding: 8px 0;
 }
 
-section {
+.res-sec {
     background-color: #222;
     width: 100%;
 }
@@ -801,14 +802,14 @@ input + label {
   font-weight: 300;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="tel"] {
   width: 100%;
   padding: 8px;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
 }
 
-.signup-form input[type="text"], .signup-form input[type="password"] {
+.signup-form input[type="text"], .signup-form input[type="password"], .signup-form input[type="tel"] {
     width: 60%;
     position: absolute;
     right: 0;
@@ -829,11 +830,6 @@ input[name="chk"] {
     right: 0;
 }
 
-input[type="tel"] {
-    width: 39px;
-    padding: 8px;
-    border: 1px solid #e5e5e5;
-}
 
 input[type="submit"] {
     display: block;
