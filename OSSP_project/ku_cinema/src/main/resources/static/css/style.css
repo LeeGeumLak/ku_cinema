@@ -14,10 +14,14 @@ img {width: 100%;}
     clear: both;
 }
 
-body {font-family: 'Noto Sans KR', sans-serif;}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    min-width: 1200px;
+}
 
 .col-3 {
     width: 300px;
+    float: left;
 }
 
 /*--------------HEADER 시작-------------*/
@@ -236,26 +240,6 @@ dd {
     float: left;
     width: 100%;
     transition: all 1s;
-}
-
-@media(min-width: 768px) {
-    .movie-content {
-        width: 50%;
-    }
-}
-@media(min-width: 1024px) {
-    .movie-content {
-        width: 33.33%;
-    }
-}
-@media(min-width: 1200px) {
-    .movie-content {
-        width: 25%;
-    }
-    
-    .section-title {
-        max-width: 1200px;
-    }
 }
 
 .movie-thumb {width: 100%;}
@@ -492,25 +476,25 @@ textarea {
 section {
     background-color: #222;
     width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
 }
 
 .reservation-area {
-    height: 485px;
+    width: 1080px;
+    height: 486px;
     margin: 0 auto;
-    white-space: nowrap;
-    overflow-x: scroll;
-    text-align: center;
 }
 
-.reservation-area div {
-    display: inline-block;
+.reservation-area > div {
     box-sizing: border-box;
     height: 100%;
     background-color: antiquewhite;
-    border: 1px solid red;
+    border: 1px solid #bbb;
+    border-bottom: 0;
+    border-top: 0;
 }
+
+.reservation-area > div:first-child {border-left: 0;}
+.reservation-area > div:last-child {border-right: 0;}
 
 .reservation-area ul, .reservation-area ol {
     margin: 8px;
@@ -519,10 +503,10 @@ section {
 }
 
 .reservation-area ol {
-    padding: 0 16px;
+    padding: 0 12px;
 }
 
-.reservation-area li {
+.movie-list li, .theatre li {
     display: flex;
     align-items: center;
     padding: 8px 0;
@@ -558,30 +542,160 @@ section {
     margin-bottom: 8px;
 }
 
-.date ol {padding: 0;}
+.date ol {
+    padding: 0;
+    font-size: 14px;
+}
 
 .date__list li {
     margin: 0 4px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .dayweek {
     font-size: 14px;
     font-weight: 300;
 }
-.day {margin-left: 25%;}
+.day {
+    margin-left: 25%;
+    font-weight: 600;
+}
+
+.timetable ol {
+    text-align: left;
+    font-size: 14px;
+}
+.time__icon {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.timetable li img {
+    margin: 0 2px;
+    width: 16px;
+}
+
+.time__list {
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 0 0;
+    width: 110px;
+    cursor: pointer;
+}
 
 .time {
     display: inline-flex;
     padding: 4px;
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     margin: 0 4px;
 }
 
+.cine-info {
+    padding-top: 8px;
+    border-top: 2px solid #bbb;
+    margin-top: 8px;
+}
+.type {margin-right: 8px;}
+
 .rest-seat-num {
     font-size: 12px;
-    color: 
+    color: #3d7c35;
 }
+
+/*좌석선택*/
+.seat {cursor: pointer;}
+.seat p {
+    display: inline-block;
+    width: 40px;
+    height : 20px;
+    border: 1px solid #3d3d3d;
+    text-align: center;
+    padding: 10px 0; 
+    margin: 3px;
+}
+#span p {margin-right: 40px;}
+.hoverColor {background-color: #e5e5e5;}
+.selectColor {background-color: cornflowerblue;}
+
+
+/*예매정보*/
+.reservation-info {
+    height: 130px;
+}
+
+.reservation-info {
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 12px;
+    color: #ccc;
+}
+.reservation-info > div {
+    float: left;
+    width: 200px;
+    height: 100%;
+    padding: 12px 0;
+    box-sizing: border-box;
+}
+
+.reservation-info table {
+    text-align: left;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.reservation-info th {
+    padding-right: 8px;
+    font-weight: 400;
+}
+
+.reservation-info td {font-weight: 600;}
+
+.reservation-info p {
+    display: inline-block;;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.select_thumb {
+    width: 75px;
+    float: left;
+}
+
+.seat-page {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    color: #ccc;
+    padding: 20px 0;
+    font-size: 16px;
+}
+
+.seat-page p {
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 2px solid #ccc;
+    border-radius: 20%;
+}
+
+.border {
+    margin-top: 30px;
+    height: 50%;
+    border: 2px solid #ccc;
+    float: left;
+}
+
+.info-msg {
+    display: inline-block;
+    color: #ccc;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 28px;
+    padding: 8px 30px 8px 50px;
+}
+
+
 /*-----------컨텐츠영역 끝----------*/
 
 /*-----------로그인영역 시작----------*/

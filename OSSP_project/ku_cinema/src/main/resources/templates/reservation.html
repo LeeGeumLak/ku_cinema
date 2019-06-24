@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>영화 예매페이지</title>
         <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-        <link rel="stylesheet" type="text/css" href="../static/css/css/seat-style.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/seat-style.css">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
         <script type="text/javascript" src="../static/js/jquery.js"></script>
@@ -43,25 +43,25 @@
         <!--헤더 끝-->
         
         <!--컨텐츠영역 시작-->
-        <section>
+        <section class="clearfix">
         <div class="reservation-area">
             <div class="movie-list col-3">
                 <h4 class="division-title">영화</h4>
                 <ul>
-                    <li class="movie__list"><img src="../static/img/icon/all.png">알라딘</li>
-                    <li class="movie__list"><img src="../static/img/icon/all.png">토이스토리4</li>
-                    <li class="movie__list"><img src="../static/img/icon/15.png">롱리브더킹-목포영웅</li>
-                    <li class="movie__list"><img src="../static/img/icon/15.png">기생충</li>
-                    <li class="movie__list"><img src="../static/img/icon/18.png">존윅3-파라벨룸</li>
-                    <li class="movie__list"><img src="../static/img/icon/18.png">사탄의인형</li>
-                    <li class="movie__list"><img src="../static/img/icon/12.png">어벤져스-엔드게임</li>
-                    <li class="movie__list"><img src="../static/img/icon/12.png">맨인블랙-인터내셔널</li>
-                    <li class="movie__list"><img src="../static/img/icon/all.png">천로역정-천국을찾아서</li>
-                    <li class="movie__list"><img src="../static/img/icon/15.png">비스트</li>
-                    <li class="movie__list"><img src="../static/img/icon/12.png">세상을바꾼변호인</li>
-                    <li class="movie__list"><img src="../static/img/icon/all.png">이웃집토토로</li>
-                    <li class="movie__list"><img src="../static/img/icon/15.png">애나벨집으로</li>
-                    <li class="movie__list"><img src="../static/img/icon/12.png">칠드런액트</li>
+                    <li class="movie__list" id="all">알라딘</li>
+                    <li class="movie__list" id="all">토이스토리4</li>
+                    <li class="movie__list" id="15">롱리브더킹-목포영웅</li>
+                    <li class="movie__list" id="15">기생충</li>
+                    <li class="movie__list" id="18">존윅3-파라벨룸</li>
+                    <li class="movie__list" id="18">사탄의인형</li>
+                    <li class="movie__list" id="12">어벤져스-엔드게임</li>
+                    <li class="movie__list" id="12">맨인블랙-인터내셔널</li>
+                    <li class="movie__list"  id="all">천로역정-천국을찾아서</li>
+                    <li class="movie__list" id="15">비스트</li>
+                    <li class="movie__list" id="12">세상을바꾼변호인</li>
+                    <li class="movie__list" id="all">이웃집토토로</li>
+                    <li class="movie__list" id="15">애나벨집으로</li>
+                    <li class="movie__list" id="12">칠드런액트</li>
                 </ul>
             </div>
             <div class="theatre col-3">
@@ -100,17 +100,35 @@
                 <h4 class="division-title">날짜</h4>
                 <ol class="date__list"></ol>
             </div>
-            <div class="timetable col-3" style="width: 400px;">
+            <div class="timetable col-3" style="width: 380px;">
                 <h4 class="division-title">시간</h4>
                 <ol>
-                    <li class="cine-info"><span class="type">2D</span><span class="cine-name">1관 3층</span></li>
-                    <li class="time__list"><strong class="time">10:25</strong><span class="rest-seat-num">138석</span></li>
+                    <li class="time__icon"><img src="../static/img/icon/sun.png"><span>조조</span>
+                    <img src="../static/img/icon/moon.png"><span>심야</span></li>
+                    <li class="cine-info"><strong class="type">2D</strong><span class="cine-name">1관 3층</span></li>
+                    <li class="time__list"><strong class="time" id="sun">10:25</strong><span class="rest-seat-num">127석</span></li>
+                    <li class="cine-info"><strong class="type">2D</strong><span class="cine-name">2관 3층</span></li>
+                    <li class="time__list"><strong class="time">12:15</strong><span class="rest-seat-num">138석</span></li>
+                    <li class="time__list"><strong class="time">14:50</strong><span class="rest-seat-num">134석</span></li>
+                    <li class="time__list"><strong class="time">17:25</strong><span class="rest-seat-num">123석</span></li>
+                    <li class="time__list"><strong class="time">20:00</strong><span class="rest-seat-num">95석</span></li>
+                    <li class="cine-info"><strong class="type">2D</strong><span class="cine-name">4관 4층</span></li>
+                    <li class="time__list"><strong class="time" id="moon">21:00</strong><span class="rest-seat-num">138석</span></li>
                 </ol>
             </div>
         </div>
+            
+        <div class="seatMap-wrapper" style="display: none;"></div>
         </section>
         
         <section>
+            <div class="reservation-info clearfix">
+                <div class="select-movie"></div><span class="border"></span>
+                <div class="select-theater"></div><span class="border"></span>
+                <div class="select-seat"></div><span class="border"></span>
+                <div class="payment"></div>
+                <div class="seat-page"><p>좌석선택<br>하러가기</p></div>
+            </div>
         </section>
         <!--컨텐츠영역 끝-->
         

@@ -47,7 +47,7 @@ $(function() {
          $(".seatMap").html(tag);
     }
 
-    var str = "3 2 4 2 5";
+    var str = "3 3 6 2 5";
     setSeat(str);
 
     //배열로 

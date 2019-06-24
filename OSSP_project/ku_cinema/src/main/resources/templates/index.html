@@ -13,27 +13,6 @@
         <script type="text/javascript" th:src="@{/js/img-gallery.js}"></script>
         <script type="text/javascript" th:src="@{/js/seat.js}"></script>
         <script type="text/javascript" th:src="@{/js/common.js}"></script>
-        <script>
-            $(function() {                
-                function setAgeIcon(age) {
-                    if(age == "청불")  {
-                        $(this).append("<img class='age-img' src='img/icon/18.png'>");
-                    }
-                    else if(age == "12")  {
-                        $(this).append("<img class='age-img' src='img/icon/12.png'>");
-                    }
-                    else if(age == "15")  {
-                        $(this).append("<img class='age-img' src='img/icon/15.png'>");
-                    }
-                    else if(age == "미정")  {
-                        $(this).append("<img class='age-img' src='img/icon/none.png'>");
-                    }
-                    else if(age == "전체")  {
-                        $(this).append("<img class='age-img' src='img/icon/all.png'>");
-                    }
-                }
-            })
-        </script>
     </head>
     <body>
         <!-- 상단 배너 영역-->
