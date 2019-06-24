@@ -1,4 +1,15 @@
 $(function() {
+        //콤마함수
+    function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    }
+
+    //콤마풀기
+    function uncomma(str) {
+        str = String(str);
+        return str.replace(/[^\d]+/g, '');
+    }
     function setSeat(str) {
         /*
         str은 좌석배열의 정보를 공백문자로 구분하여 받음.
@@ -15,7 +26,7 @@ $(function() {
         //동적으로 삽입할 태그정의.
         var tag="";
 
-        $(".seatMap-wrapper").html("<table class='seatMap'></table");
+        $(".seatMap-wrapper").append("<table class='seatMap'></table");
         for(var r=0; r<arr[len-1]; r++) {
             tag += "<tr>";
 
@@ -44,7 +55,7 @@ $(function() {
             }
             tag += "</tr>";
         }
-         $(".seatMap").html(tag);
+         $(".seatMap").append(tag);
     }
 
     var str = "3 3 6 2 5";
@@ -65,18 +76,82 @@ $(function() {
     })
 
     $(".seat").click(function() {
-        var seatName;
-        var row = $(this).parent().index();
-        row += 65;
-        row = String.fromCharCode(row);
-        var col = $(this).parent().children().index(this)+1;
-        setName = row + col;
-        console.log(setName);
-        $(this).children("p").toggleClass("selectColor");
+        var select = 0;
+        var tmp_cnt = $(".reserveCnt").eq(0).text();
+        tmp_cnt = Number(tmp_cnt);
+        select += tmp_cnt;
+        tmp_cnt = $(".reserveCnt").eq(1).text();
+        tmp_cnt = Number(tmp_cnt);
+        select += tmp_cnt;
+        tmp_cnt = $(".reserveCnt").eq(2).text();
+        tmp_cnt = Number(tmp_cnt);
+        select += tmp_cnt;
+        
+        if(select > 0) {
+            if($(".selectColor").length < select) {
+                var seatName;
+                var row = $(this).parent().index();
+                row += 65;
+                row = String.fromCharCode(row);
+                var col = $(this).parent().children().index(this)+1;
+                setName = row + col;
+                console.log(setName);
+                $(this).children("p").toggleClass("selectColor");
+
+                var seq = $(".selectColor").map(function(){ 
+                        return $(this).html();
+                    }).get().join(' ');
+
+                $(".select-seat").html("<table>"
+                                              +"<tr><th>좌석번호</th><td>" + seq + "<span class='select-time'></span></td></tr>"
+                                              +"</table>");
+            }
+        }
+        else {alert("인원을 선택해주세요!");}
     })
     $(".seat").mouseover(function() {
         $(this).children("p").addClass("hoverColor");
     }).mouseout(function() {
         $(this).children("p").removeClass("hoverColor");
+    })
+    
+    $(".plus").click(function(){
+        var tmp_price = $(this).parent().children("label").attr("data");
+        tmp_price = Number(tmp_price);
+        var tmp_num = $(this).parent().children(".reserveCnt").text();
+        tmp_num = Number(tmp_num);
+        if($("#adult .reserveCnt").text() == 0 && $("#student .reserveCnt").text() == 0 && $("#child .reserveCnt").text() == 0) {
+            $(".payment").html("<table>"
+                                              +"<tr><th>총금액</th><td><strong id='ticketTotalPrice'>0</strong>원</td></tr>"
+                                              +"</table>")
+        }
+        tmp_num++;
+        $(this).parent().children(".reserveCnt").text(tmp_num);
+        var tmp_total = $("#ticketTotalPrice").text();
+        tmp_total = uncomma(tmp_total)
+        tmp_total = Number(tmp_total);
+        tmp_total += tmp_price;
+        console.log(tmp_total);
+        $("#ticketTotalPrice").text(comma(tmp_total));
+    })
+
+    $(".minus").click(function(){
+        var tmp_price = $(this).parent().children("label").attr("data");
+        tmp_price = Number(tmp_price);
+        var tmp_num = $(this).parent().children(".reserveCnt").text();
+        tmp_num = Number(tmp_num);
+        tmp_num--;
+        var tmp_total = $("#ticketTotalPrice").text();
+        tmp_total = uncomma(tmp_total)
+        tmp_total = Number(tmp_total);
+        if(tmp_num < 0) {
+            tmp_num = 0;
+        }
+        else {
+            tmp_total = tmp_total - tmp_price;
+        }
+        if(tmp_total <= 0) tmp_total = 0;
+        $(this).parent().children(".reserveCnt").text(tmp_num);
+        $("#ticketTotalPrice").text(comma(tmp_total));
     })
 })

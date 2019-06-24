@@ -663,7 +663,11 @@ section {
     float: left;
 }
 
-.seat-page {
+.select-seat {
+    margin: 
+}
+
+.seat-page, .reservation-page, .payment-page {
     cursor: pointer;
     position: absolute;
     right: 0px;
@@ -672,11 +676,24 @@ section {
     font-size: 16px;
 }
 
-.seat-page p {
+.reservation-info .reservation-page {
+    position: relative;
+    width: 100px;
+}
+
+.seat-page p, .reservation-page p, .payment-page p {
+    float: right;
+    margin-right: 16px;
     box-sizing: border-box;
     padding: 16px 12px;
     border: 2px solid #ccc;
     border-radius: 20%;
+}
+
+.reservation-page p {
+    margin: 0;
+    margin-top: 8px;
+    margin-right: 8px;
 }
 
 .border {
@@ -694,6 +711,46 @@ section {
     margin-top: 28px;
     padding: 8px 30px 8px 50px;
 }
+
+.basis-btn {
+    cursor: pointer;
+    position: relative;
+    left: 1050px;
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 8px;
+    border: 2px solid #777;
+    font-size: 12px;
+}
+
+.cnt_btn {
+    cursor: pointer;
+ 	color: #fff;
+    font-weight : bold;
+    font-size : 20px;
+    text-decoration: none;
+    background-color : #417FF2;
+    border : 0px;
+    width: 20px;
+    height: 20px;
+    float : left;
+    padding: 8px 12px 16px 12px;
+    margin-left: 4px;
+}
+
+.bookingSelectSeatTicket {
+    text-align: center;
+	height: 62px;
+    padding: 9px 20px 0 20px;
+}
+
+.bookingSelectSeatTicket label {
+		position: relative;
+	    float: left;
+	    top: 10px;
+	    width: 50px;
+}
+
 
 
 /*-----------컨텐츠영역 끝----------*/

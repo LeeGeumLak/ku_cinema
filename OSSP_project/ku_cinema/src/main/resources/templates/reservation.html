@@ -43,6 +43,7 @@
         <!--헤더 끝-->
         
         <!--컨텐츠영역 시작-->
+        <span class="basis-btn clearfix">예매 초기화</span>
         <section class="clearfix">
         <div class="reservation-area">
             <div class="movie-list col-3">
@@ -117,17 +118,40 @@
                 </ol>
             </div>
         </div>
-            
-        <div class="seatMap-wrapper" style="display: none;"></div>
+        
+        <div class="seatMap-wrapper" style="display: none;">
+            <div class="bookingSelectSeatTicket">
+					<span id="adult">
+						<label data="10000">일반</label>
+						<label class="reserveCnt">0</label>
+                        <span class="cnt_btn minus">-</span>
+                        <span class="cnt_btn plus">+</span>
+					</span>
+					<span id="student">
+						<label  data="8000" style="margin-left:10px;">청소년</label>
+						<label  class="reserveCnt">0</label>
+                        <span class="cnt_btn minus">-</span>
+                        <span class="cnt_btn plus">+</span>
+					</span>
+					<span id="child">
+						<label  data="6000" style="margin-left:10px;">어린이</label>
+						<label  class="reserveCnt">0</label>
+                        <span class="cnt_btn minus">-</span>
+                        <span class="cnt_btn plus">+</span>
+                    </span>
+	    	</div>
+        </div>
         </section>
         
         <section>
-            <div class="reservation-info clearfix">
+            <div class="reservation-info clearfix" style="display: block;">
+                <div class="reservation-page" style="display: none;"><p>영화선택<br>돌아가기</p></div>
                 <div class="select-movie"></div><span class="border"></span>
                 <div class="select-theater"></div><span class="border"></span>
                 <div class="select-seat"></div><span class="border"></span>
                 <div class="payment"></div>
                 <div class="seat-page"><p>좌석선택<br>하러가기</p></div>
+                <div class="payment-page" style="display: none;"><p>예매결제<br>하러가기</p></div>
             </div>
         </section>
         <!--컨텐츠영역 끝-->

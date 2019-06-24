@@ -139,13 +139,13 @@ $(function() {
         if($(".select-theater").text() == "극장선택") {
             $(".select-theater").html("<table>"
                                       +"<tr><th>극장</th><td></td></tr>"
-                                      +"<tr><th>일시</th><td>" + date_str + "</td></tr>"
+                                      +"<tr><th>일시</th><td>" + date_str + "<span class='select-time'></span></td></tr>"
                                       +"<tr><th>상영관</th><td></td></tr>"
                                       +"<tr><th>인원</th><td></td></tr>"
                                       +"</table>")
         }
         else {
-            $(".select-theater table tr").eq(1).children("td").html(date_str);
+            $(".select-theater table tr").eq(1).children("td").html(date_str+ "<span class='select-time'></span>");
         }
     })
     
@@ -169,11 +169,15 @@ $(function() {
         $(".time").removeClass("back-blk");
         $(this).children(".time").addClass("back-blk");
         time = $(this).children(".time").text();
-        var scr = $(this).prev(".cine-info").children(".cine-name").text();
-        console.log(scr);
-        
-        time = $(".select-theater table tr").eq(1).children("td").text() + " " + time;
-        $(".select-theater table tr").eq(1).children("td").html(time);
+        var tmp = $(this).prev();
+        var scr = tmp.children(".cine-name").text();
+        while(scr == "") {
+            tmp = tmp.prev();
+            scr = tmp.children(".cine-name").text();
+            console.log(scr);
+        }
+        console.log(time);
+        $(".select-theater table tr td").eq(1).children(".select-time").html(" " + time);
         $(".select-theater table tr").eq(2).children("td").html(scr);
     })
 
@@ -191,8 +195,36 @@ $(function() {
         $(".payment").html("<span class='info-msg'>결제</span>");
     }
     
+    $(".basis-btn").click(function() {
+        $(".select-movie").html("<span class='info-msg'>영화선택</span>");
+        $(".select-theater").html("<span class='info-msg'>극장선택</span>");
+        $(".select-seat").html("<span class='info-msg'>좌석선택</span>");
+        $(".payment").html("<span class='info-msg'>결제</span>");
+        $(".reservation-area li, .time").removeClass("back-blk");
+        $(".reservation-area").css("display", "block");
+        $(".seatMap-wrapper").css("display", "none");
+        $(".reservation-page").css("display", "none");
+        $(".seat-page").css("display", "inline-block");
+    })
+    
     $(".seat-page").click(function() {
-        $(".reservation-info").css("display", "none");
-        $(".seatMap-wrapper").css("dispaly", "block");
+        if(title == "" || theater == "" || date == "" || time == "") {
+            alert("예매정보가 모두 선택되지 않았습니다!");
+        }
+        else {
+            $(".reservation-area").css("display", "none");
+            $(".seatMap-wrapper").css("display", "block");
+            $(".seat-page").css("display", "none");
+            $(".reservation-page").css("display", "inline-block");
+            $(".payment-page").css("display", "inline-block");
+        }
+    })
+    
+    $(".reservation-page").click(function() {
+        $(".reservation-area").css("display", "block");
+        $(".seatMap-wrapper").css("display", "none");
+        $(".reservation-page").css("display", "none");
+        $(".seat-page").css("display", "inline-block");
+        $(".payment-page").css("display", "none");
     })
 })
