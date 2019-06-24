@@ -581,7 +581,7 @@ input[type="text"], input[type="password"] {
   box-sizing: border-box;
 }
 
-.signup-form input[type="text"], .signup-form input[type="password"] {
+.signup-form input[type="text"], .signup-form input[type="password"] .signup-forrm input[type="tel"]{
     width: 60%;
     position: absolute;
     right: 0;
@@ -595,6 +595,7 @@ input[name="chk"] {
     border: 1px solid #e5e5e5;
     border-radius: 2%;
 }
+/*
 .tel-wrapper {
     display: inline;
     width: 60%;
@@ -607,7 +608,7 @@ input[type="tel"] {
     padding: 8px;
     border: 1px solid #e5e5e5;
 }
-
+*/
 input[type="submit"] {
     display: block;
     margin: 0 auto;

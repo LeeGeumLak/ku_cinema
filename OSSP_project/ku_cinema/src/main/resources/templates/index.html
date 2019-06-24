@@ -46,21 +46,13 @@
             <nav>
                 <div class="clearfix">
                     <ul class="submenu-wrapper">
-                        <sec::authorize access="isAnonymous()">
-                        <li class="submenu"><a th:href="@{/ku_cinema/login}" >로그인</a>
+                        <li sec::authorize="isAnonymous()" class="submenu"><a th:href="@{/ku_cinema/login}" >로그인</a>
                         </li>
-                        <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
-                        </sec::authorize>
-                        <sec::authorize access="isAuthenticated()">
-                            <li class="submenu"><a th:href="@{/}">로그아웃</a></li>
-                        </sec::authorize>
-                        <sec::authorize access="hasRole(ROLE_USER)">
-                            <li class="submenu"><a th:href="@{/}">마이페이지</a></li>
-                        </sec::authorize>
-                        <sec::authorize access="hasRole(ROLE_ADMIN)">
-                            <li class="submenu"><a th:href="@{/}">관리자페이지</a></li>
-                        </sec::authorize>
-                        <li class="submenu">고객센터</li>
+                        <li sec::authorize="isAnonymous()" class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
+                        <li sec::authorize="isAuthenticated()" class="submenu"><a th:href="@{/}">로그아웃</a></li>
+                        <li sec::authorize="hasRole('ROLE_USER')" class="submenu"><a th:href="@{/}">마이페이지</a></li>
+                        <li sec::authorize="hasRole('ROLE_ADMIN')" class="submenu"><a th:href="@{/}">관리자페이지</a></li>
+                    <li class="submenu">고객센터</li>
                     </ul>
                 </div>
             </nav>
