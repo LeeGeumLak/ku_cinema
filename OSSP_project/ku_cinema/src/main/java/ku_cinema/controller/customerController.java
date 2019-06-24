@@ -37,7 +37,8 @@ public class customerController {
 		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
 		String B_PW = crypto.encode(PW);
 		System.out.println(B_PW);
-		 if(crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword()))
+		 if(customuserdetailsservice.loadUserByUsername(ID) != null && 
+				 crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword()))
 			 return "index";
 		 else
 			 return "redirect:login";
@@ -48,5 +49,15 @@ public class customerController {
 		
 		author auth = authorservice.FindAuthorUser(ID);
 		return auth.getRole();
+	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	String SignPage() {
+		return "signup";
+	}
+	
+	@RequestMapping(value = "/signsuccess", method = RequestMethod.POST)
+	String SuccessSign() {
+		return "signup-success";
 	}
 }
