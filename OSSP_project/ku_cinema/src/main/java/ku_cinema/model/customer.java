@@ -24,8 +24,6 @@ public class customer implements Serializable {
 	private String Email;
 	private int Mileage;
 	private int Coupon;
-	@Enumerated(EnumType.STRING)
-	private RoleName roleName;
 	
 	@Transient
 	private Collection<? extends GrantedAuthority> authorities;	
@@ -93,12 +91,4 @@ public class customer implements Serializable {
 	public void setAuthorities(Collection <? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
-	
-	public RoleName getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(RoleName roleName) {
-        this.roleName = roleName;
-    }
 }
