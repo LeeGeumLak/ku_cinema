@@ -99,13 +99,4 @@ public class HomeController{
 		return m;
 	}
 	
-	@RequestMapping(value="/ku_cinema/searchMovieLanguage/{lang}")
-	public ModelAndView searchMovieLanguage(@PathVariable("lang")String lang,Movies movie,Map<String, Object> model){
-		List<Movies> list=mi.getAllMoviesByLanguage(lang);
-		ModelAndView m=new ModelAndView("search-movies");
-		model.put("list",list);
-		m.addObject("show",lang);
-		return m;
-	}
-	
 }
