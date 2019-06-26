@@ -5,6 +5,10 @@ import ku_cinema.service.*;
 
 //import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +26,17 @@ public class customerController {
 	CustomUserDetailsService customuserdetailsservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	String mainpage() {
+	String mainpage(Model model) {
+		
+		Object Principal = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		/*
+		if(Principal instanceof UserDetails)
+			((UserDetails) Principal).getAuthorities();
+
+				  	???????
+
+		 */
+		
 		return "index";
 	}
 	
@@ -46,8 +60,16 @@ public class customerController {
 		// SecurityCustomer s_cus = customuserdetailsservice.loadUserByUsername(ID);
 		
 		BCryptPasswordEncoder crypto = new BCryptPasswordEncoder();
+<<<<<<< Updated upstream
 		 if(crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword()))
+=======
+		String B_PW = crypto.encode(PW);
+		System.out.println(B_PW);
+		 if(customuserdetailsservice.loadUserByUsername(ID) != null && 
+				 crypto.matches(PW, customuserdetailsservice.loadUserByUsername(ID).getPassword())) {
+>>>>>>> Stashed changes
 			 return "index";
+		 }
 		 else
 			 return "redirect:login";
 	}
@@ -58,4 +80,31 @@ public class customerController {
 		author auth = authorservice.FindAuthorUser(ID);
 		return auth.getRole();
 	}
+<<<<<<< Updated upstream
+=======
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	String SignPage() {
+		return "signup";
+	}
+	
+	@RequestMapping(value = "/signsuccess", method = RequestMethod.POST)
+	public String SuccessSign(customer cus) {
+	
+		author au = new author();
+		
+		au.setRole("user");
+		au.setID(cus.getID());
+		
+		authorservice.AssignAu(au);
+			
+		BCryptPasswordEncoder PE = new BCryptPasswordEncoder();
+		cus.setPW(PE.encode(cus.getPW()));
+			
+	    customerservice.AssignUser(cus);
+			
+		return "signup-success";
+		
+	}
+>>>>>>> Stashed changes
 }

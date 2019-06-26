@@ -3,6 +3,7 @@ package ku_cinema.service;
 import java.util.ArrayList;
 import java.util.List;
 // for authority List
+import java.util.Optional;
 
 import ku_cinema.model.*;
 import ku_cinema.repository.*;
@@ -29,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	customerRepo customerrepo;
 	@Autowired
 	authorRepo authorrepo;
-	
+
 	private static List<GrantedAuthority> makeGrantedAuthority(String role){
 		List<GrantedAuthority> list = new ArrayList<>();
 		list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
@@ -49,5 +50,15 @@ public class CustomUserDetailsService implements UserDetailsService{
 		return new SecurityCustomer(cus);
 		
 	}
-
+	
+	/*
+	@Override
+	public UserDetails loadUserByUsername(String ID) throws UsernameNotFoundException {
+		return 
+				Optional.ofNullable(customerrepo.findByID(ID))
+				.filter(m -> m!= null)
+				.map(m-> new SecurityCustomer(m)).get();
+		
+	}
+*/
 }

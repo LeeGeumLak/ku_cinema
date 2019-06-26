@@ -23,6 +23,7 @@ public class customer implements Serializable {
 	private int Coupon;
 	@Transient
 	private Collection<? extends GrantedAuthority> authorities;	
+	//private List<author> roles;
 	
 	public String getID() {
 		return this.iD;
@@ -87,5 +88,18 @@ public class customer implements Serializable {
 	public void setAuthorities(Collection <? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
+	/*
+	public List<author> getRoles() {
+		return this.roles;
+	}
+	
+	public void setRoles(List<author> role) {
+		for(int i=0; i<role.size(); i++)
+			this.roles.set(i, role.get(i));
+	}
+	/*
+	/*public boolean isAnonymous() {
+		return false;
+	}*/
 	
 }

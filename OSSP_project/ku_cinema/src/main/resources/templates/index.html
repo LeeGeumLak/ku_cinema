@@ -1,5 +1,10 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html xmlns:th="http://www.thymeleaf.org">
+=======
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+>>>>>>> Stashed changes
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>CINEMA KU Main PAGE</title>
@@ -45,9 +50,18 @@
             <nav>
                 <div class="clearfix">
                     <ul class="submenu-wrapper">
+<<<<<<< Updated upstream
                         <li class="submenu"><a th:href="@{/ku_cinema/login}">로그인</a></li>
                         <li class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
                         <li class="submenu">고객센터</li>
+=======
+					    <li sec::authorize  = "isAnonymous()" class="submenu"><a th:href="@{/ku_cinema/login}" >로그인</a></li>
+                        <li sec::authorize  = "isAnonymous()" class="submenu"><a th:href="@{/ku_cinema/signup}">회원가입</a></li>
+                        <li sec::authorize = "isAuthenticated()" class="submenu"><a th:href="@{/}">로그아웃</a></li>
+                        <li sec::authorize = "hasRole('ROLE_USER')" class="submenu"><a th:href="@{/}">마이페이지</a></li>
+                        <li sec::authorize = "hasRole('ROLE_ADMIN')" class="submenu"><a th:href="@{/}">관리자페이지</a></li>
+                    <li class="submenu">고객센터</li>
+>>>>>>> Stashed changes
                     </ul>
                 </div>
             </nav>

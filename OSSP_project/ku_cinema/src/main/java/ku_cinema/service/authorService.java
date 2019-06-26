@@ -17,4 +17,8 @@ public class authorService {
 	public author FindAuthorUser(String ID) {
 		return authorrepo.findByID(ID);
 	}
+	
+	public void AssignAu(author au) {
+		authorrepo.save(au);
+	}
 }
